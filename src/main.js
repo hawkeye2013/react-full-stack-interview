@@ -44,8 +44,7 @@ if (USE_AUTH) {
       clientId: ssoClientId,
       logoutRedirectUri: logoutUrl,
     },
-    onReady: (keycloak) => {
-      console.log(keycloak);
+    onReady: () => {
       tokenInterceptor();
       new Vue({
         store,
