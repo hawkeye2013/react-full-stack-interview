@@ -1,7 +1,7 @@
 const express = require('express');
 const createError = require('http-errors');
 
-const { getAllRobots } = require('../controllers/resource/RobotController');
+const { getAllRobots, getRobotByID } = require('../controllers/resource/RobotController');
 
 const router = express.Router();
 
@@ -10,22 +10,23 @@ router.get('/', async (req, res, next) => {
     const robots = await getAllRobots();
     res.json(robots);
   } catch (err) {
-    console.log(err);
-    createError(500);
+    next(createError(500, 'server error'));
   }
 });
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const targetRobotID = req.params.id;
+    const targetRobotID = parseInt(req.params.id, 10);
 
-    console.log(targetRobotID);
+    const robot = await getRobotByID(targetRobotID);
 
-    const robots = await getAllRobots();
-    res.json(robots);
+    if (!robot) {
+      res.status(404).send('unable to find robot');
+    } else {
+      res.json(robot);
+    }
   } catch (err) {
-    console.log(err);
-    createError(500);
+    next(createError(500, 'server error'));
   }
 });
 

@@ -14,7 +14,13 @@ function getRobotByID(targetID) {
   return new Promise((resolve, reject) => {
     readJSON()
       .then((data) => {
-        resolve(data.robots);
+        const matchingRobots = data.robots.filter((robot) => robot.id === targetID);
+
+        if (matchingRobots.length > 0) {
+          resolve(matchingRobots[0]);
+        } else {
+          resolve(null);
+        }
       })
       .catch((err) => reject(err));
   });
@@ -36,5 +42,5 @@ function setRobots(newRobots) {
 
 module.exports = {
   getAllRobots,
-  setRobots,
+  getRobotByID,
 };

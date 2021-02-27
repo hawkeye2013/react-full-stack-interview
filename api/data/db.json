@@ -1,7 +1,8 @@
 {
   "robots": [
     {
-      "name": "Robo1",
+      "id": 1,
+      "name": "Robot1",
       "color": "red",
       "attack": 100,
       "defense": 400
