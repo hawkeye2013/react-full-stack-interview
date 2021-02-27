@@ -8,6 +8,12 @@
         <p class="welcome">Welcome to the</p>
         <p class="logo-lg">ROBOT BATTLE ARENA</p>
       </div>
+
+      <div class="button-container">
+        <router-link :to="{ name: 'Robots' }" class="button is-info" tag="button"
+          >View Robots</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -45,5 +51,9 @@ export default {
     font-family: 'Black Ops One', cursive;
     font-size: 4rem;
   }
+}
+
+.button-container {
+  margin-top: 15px;
 }
 </style>

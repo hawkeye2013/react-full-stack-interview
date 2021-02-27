@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <router-link class="navbar-item" :to="{ name: 'Home' }" tag="a">
         <h2 class="logo">ROBOT BATTLE ARENA</h2>
-      </a>
+      </router-link>
 
       <a
         role="button"
@@ -20,27 +20,14 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
+        <router-link :to="{ name: 'Home' }" class="navbar-item" tag="a">
           Home
-        </a>
+        </router-link>
 
-        <a class="navbar-item">
+        <router-link :to="{ name: 'Robots' }" class="navbar-item" tag="a">
           Robots
-        </a>
+        </router-link>
       </div>
-
-      <!-- <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
-        </div>
-      </div> -->
     </div>
   </nav>
 </template>
