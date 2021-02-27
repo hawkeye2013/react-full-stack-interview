@@ -20,6 +20,7 @@ Lately I have been really interested in SSO services. I have a small personal in
 The test username and password I was using was:
 
 username: jdoe@hawkinson.dev
+
 password: password
 
 Feel free to make your own account so you can see it pull your own name as well!
