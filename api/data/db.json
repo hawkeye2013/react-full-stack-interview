@@ -1,5 +1,12 @@
 {
-  "robots": [],
+  "robots": [
+    {
+      "name": "Robo1",
+      "color": "red",
+      "attack": 100,
+      "defense": 400
+    }
+  ],
   "fightQueue": [],
   "battles": []
 }
