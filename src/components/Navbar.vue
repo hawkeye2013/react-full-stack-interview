@@ -29,17 +29,46 @@
         </router-link>
       </div>
     </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <p class="is-size-5 username">Hello {{ userFullName }}!</p>
+        <div class="buttons">
+          <a @click="logoutUser" class="button is-danger">
+            <strong>Log Out</strong>
+          </a>
+        </div>
+      </div>
+    </div>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'Navbar',
+  computed: {
+    userFullName() {
+      if (this.$keycloak) {
+        return `${this.$keycloak.tokenParsed.given_name} ${this.$keycloak.tokenParsed.family_name}`;
+      }
+      return '';
+    },
+  },
+  methods: {
+    logoutUser() {
+      if (this.$keycloak) {
+        this.$keycloak.logoutFn();
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .logo {
   font-family: 'Black Ops One', cursive;
+}
+
+.username {
+  margin-right: 10px;
 }
 </style>
